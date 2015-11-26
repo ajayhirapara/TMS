@@ -15,6 +15,8 @@
     <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
+    <link href="../plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Css for datatables -->
     <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
     <link href="../plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
@@ -37,7 +39,6 @@
     <![endif]-->
     
        <!-- jQuery 2.1.4 -->
-    <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.2 -->
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -45,7 +46,6 @@
       $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>    
     <!-- Morris.js charts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="../plugins/morris/morris.min.js" type="text/javascript"></script>
@@ -63,33 +63,33 @@
     <script src="../plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
     <!-- Bootstrap WYSIHTML5 -->
     <script src="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
-    <!-- Slimscroll -->
+    
+    
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="../dist/js/pages/dashboard.js" type="text/javascript"></script>    
+    <script src="../dist/js/jquery.validate.js" type="text/javascript"></script>    
+    
+    <!-- jQuery for Datatable -->
+     <!-- jQuery 2.1.4 -->
+    <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- DATA TABES SCRIPT -->
+    <script src="../plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <!-- SlimScroll -->
     <script src="../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- FastClick -->
     <script src='../plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
-    <script src="../dist/js/app.min.js" type="text/javascript"></script>    
-    
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../dist/js/pages/dashboard.js" type="text/javascript"></script>    
-    
+    <script src="../dist/js/app.min.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js" type="text/javascript"></script>
-    <script src="../dist/css/changes.css"></script>
-    <link href="../dist/css/popup.css" rel="stylesheet" type="text/css" />
-
-   
-    
-   
-    
-    
-    
-    
+    <!-- page script -->
+  
   </head>
   <body class="skin-blue sidebar-mini">
-    <div class="wrapper">
-      
-      <header class="main-header">
+   <header class="main-header">
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -117,7 +117,7 @@
                     <!-- inner menu: contains the actual data -->
                     <ul class="menu">
                       <li><!-- start message -->
-                        <a href="#">
+                        <a data-rv-vanilla-modal="#msg" style="cursor: pointer;">
                           <div class="pull-left">
                             <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
                           </div>
@@ -129,7 +129,7 @@
                         </a>
                       </li><!-- end message -->
                       <li>
-                        <a href="#">
+                        <a data-rv-vanilla-modal="#msg" style="cursor: pointer;">
                           <div class="pull-left">
                             <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
@@ -141,7 +141,7 @@
                         </a>
                       </li>
                       <li>
-                        <a href="#">
+                        <a data-rv-vanilla-modal="#msg" style="cursor: pointer;">
                           <div class="pull-left">
                             <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
@@ -153,7 +153,7 @@
                         </a>
                       </li>
                       <li>
-                        <a href="#">
+                        <a data-rv-vanilla-modal="#msg" style="cursor: pointer;">
                           <div class="pull-left">
                             <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
@@ -165,7 +165,7 @@
                         </a>
                       </li>
                       <li>
-                        <a href="#">
+                        <a data-rv-vanilla-modal="#msg" style="cursor: pointer;">
                           <div class="pull-left">
                             <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
@@ -178,7 +178,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="footer"><a href="#">See All Messages</a></li>
+                  <li class="footer">&nbsp;</li>
                 </ul>
               </li>
               <!-- Notifications: style can be found in dropdown.less -->
@@ -220,117 +220,97 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="footer"><a href="#">View all</a></li>
-                </ul>
-              </li>
-              <!-- Tasks: style can be found in dropdown.less -->
-              <li class="dropdown tasks-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-flag-o"></i>
-                  <span class="label label-danger">9</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 9 tasks</li>
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li><!-- Task item -->
-                        <a href="#">
-                          <h3>
-                            Design some buttons
-                            <small class="pull-right">20%</small>
-                          </h3>
-                          <div class="progress xs">
-                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                              <span class="sr-only">20% Complete</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li><!-- end task item -->
-                      <li><!-- Task item -->
-                        <a href="#">
-                          <h3>
-                            Create a nice theme
-                            <small class="pull-right">40%</small>
-                          </h3>
-                          <div class="progress xs">
-                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                              <span class="sr-only">40% Complete</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li><!-- end task item -->
-                      <li><!-- Task item -->
-                        <a href="#">
-                          <h3>
-                            Some task I need to do
-                            <small class="pull-right">60%</small>
-                          </h3>
-                          <div class="progress xs">
-                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                              <span class="sr-only">60% Complete</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li><!-- end task item -->
-                      <li><!-- Task item -->
-                        <a href="#">
-                          <h3>
-                            Make beautiful transitions
-                            <small class="pull-right">80%</small>
-                          </h3>
-                          <div class="progress xs">
-                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                              <span class="sr-only">80% Complete</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li><!-- end task item -->
-                    </ul>
-                  </li>
-                  <li class="footer">
-                    <a href="#">View all tasks</a>
-                  </li>
+                  <li class="footer">&nbsp;</li>
                 </ul>
               </li>
               <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Alexander Pierce</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <!-- User image -->
-                  <li class="user-header">
-                    <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
-                    <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
-                    </p>
-                  </li>
-                  <!-- Menu Body -->
-                  <li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </li>
-                  <!-- Menu Footer-->
-                  <li class="user-footer">
-                    <div class="pull-left">
-                      <a href="Profile.jsp" class="btn btn-default btn-flat">Profile</a>
-                    </div>
-                    <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+                 <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img id="smallicon" src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                                    <span class="hidden-xs">Alexander Pierce</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header">
+                                        <style type="text/css">
+
+                                            #profilepic #icon   
+                                            {
+                                                display: block;
+                                                margin: 0px auto;
+                                            }                
+                                            #icon:hover{
+                                                display:none;
+                                                cursor:pointer;
+                                            }
+                                            #profilepic:hover #icon
+                                            {
+                                                cursor: pointer;
+                                                opacity:0.6;                                                                           
+                                                display: none;
+                                            }
+                                            #profilepic #iconbtn
+                                            {
+                                                display: none;
+                                                margin: 0px auto;
+                                            }
+                                            #profilepic:hover #iconbtn
+                                            {
+                                                cursor: pointer;
+                                                display: block;
+                                                background-image: url('../dist/img/change_pic.png');
+                                                background-size: 60% 60%;
+                                                background-position: 50% 50%;
+                                                background-repeat: no-repeat;
+                                                background-color: white;
+                                            }
+                                            #fileid
+                                            {
+                                                background-color: white;
+                                                background-image: url('../dist/img/boxed-bg.png');
+                                            }
+                                            #iconbtn input[type="file"]{
+                                                z-index: 999;
+                                                line-height: 0;
+                                                font-size: 50px;
+                                                position: absolute;
+                                                opacity: 0;
+                                                filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+                                                cursor: pointer;
+                                                _cursor: hand;
+                                                margin: 0;
+                                                padding:0;
+                                                left:0;
+                                            }
+                                        </style>
+                                        <div  class="img-circle" id="profilepic" >
+                                            <img id="icon" src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" style="height: 133px;width: 144px;"/>
+                                            <div id="iconbtn" src="../dist/img/boxed-bg.png" class="img-circle" style="height: 133px;width: 144px;" > 
+                                                <br><br>
+                                                <input id="fileid" name="image" type='file' onchange="readURL(this);" accept="image/gif, image/jpeg, image/png">
+                                                <br><br><br>
+                                                Change pic
+
+                                            </div>
+                                        </div>
+                                        <p>
+                                            Student
+                                        </p>
+                                    </li>
+                                    <!-- Menu Body -->
+
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="profile.jsp" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                          
               <!-- Control Sidebar Toggle Button -->
               <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
@@ -339,3 +319,51 @@
           </div>
         </nav>
       </header>
+      <!-- changes -->   
+            <div id="msg" class="rv-vanilla-modal"  style="min-height:50px;">
+                <div class="rv-vanilla-modal-header group">
+                    <button class="rv-vanilla-modal-close"><span class="text">×</span></button>
+                    <h2 class="rv-vanilla-modal-title">Message</h2>
+                </div>
+                <div class="rv-vanilla-modal-body">
+                    <form action="#" method="post" class="styled">
+                        <table>
+                            <tr>
+                                <td style="width: 40%"> <label>From</label> </td>
+                                <td style="width: 60%"> <span id="from" name="from">Shubham Agrawal</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">  <label style="width: 40%;margin:0px;">Message</label>
+                                <span style="width: 60%" id="msg_body" name="msg_body">Hi.. How are you?</span></td>
+                            </tr>
+                        </table>
+                        <div class="box-solid">
+                            <input type='button' value="Close"  id="close_msg" class="btn btnsendmail pull-right" style="padding: 4.9px 14px;background-color: #3c8dbc;margin-top: 1%; margin: 1%;border-color: #3c8dbc; color: #ffffff">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- changes --> 
+            <script>
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#icon')
+                                    .attr('src', e.target.result)
+                                    .width(125)
+                                    .height(125);
+                            $('#smallicon')
+                                    .attr('src', e.target.result)
+
+                        };
+
+                        reader.readAsDataURL(input.files[0]);
+                        // $('#fileid').css("color", "green");
+
+
+                    }
+                }
+            </script>
+  </body>

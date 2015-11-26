@@ -17,13 +17,14 @@ public class Courses {
         return course_id;
     }
 
-    public void setCourse_id(String course_id) {
+    public void setCourse_id
+        (String course_id) {
         this.course_id = course_id;
     }
 
     public String getCourse_name() {
         return course_name;
-    }
+     }
 
     public void setCourse_name(String course_name) {
         this.course_name = course_name;
@@ -68,6 +69,13 @@ public class Courses {
     public void setReg_date(Date reg_date) {
         this.reg_date = reg_date;
     }
+    public Date getCoffId() {
+        return coffId;
+    }
+
+    public void setCoffId(Date coffId) {
+        this.coffId = coffId;
+    }
     private String course_id;
     private String course_name;
     private int credit;
@@ -75,4 +83,5 @@ public class Courses {
     private String domain;
     private boolean status;
     private Date reg_date;
+    private Date coffId;
 }

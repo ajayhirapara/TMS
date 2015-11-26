@@ -42,6 +42,7 @@ a.btn_red {color: #FFF;}
 .user_login input[type="checkbox"]+label {float:left;}
 .user_login .checkbox {margin-bottom: 10px; clear: both;}
 .forgot_password {display:block; margin: 20px 0 10px; clear: both; overflow: hidden; text-decoration: none; color:#ED6347;}
+.Not_Register{display:block; margin: 20px 0 10px; clear: both; overflow: hidden; text-decoration: none; color:#3c8dbc;}
 
 /*login-box-body*/
 
@@ -67,21 +68,21 @@ ul, ol{list-style:none;}
 /* Tutorial CSS */
 /* Form Validation */
 .styled span.error {
-font: bold 11px Arial, sans-serif;
-color:#fff;
-text-shadow: 1px 1px 1px #000;
-display: none; 
-background: url(../../img/arrow_error.png) no-repeat 0 center; 
-height: 25px;
-padding: 7px 15px 10px 20px; 
-line-height: 1em; 
-position: absolute; 
-top: 3px; 
-right: 0; 
-border-right: 1px solid #6c0202;
+    font: bold 11px Arial, sans-serif;
+    color:#fff;
+    text-shadow: 1px 1px 1px #000;
+    display: none; 
+    background: url(../../img/arrow_error.png) no-repeat 0 center; 
+    height: 25px;
+    padding: 7px 15px 10px 20px; 
+    line-height: 1em; 
+    position: absolute; 
+    top: 3px; 
+    right: 0; 
+    border-right: 1px solid #6c0202;
 }
 .styled fieldset li.error input.text-input {
-background-position: 0 -64px;
+    background-position: 0 -64px;
 }
 
 body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
@@ -98,12 +99,12 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
 }
 
 .popupContainer{
-	position:absolute center;
-	width: 400px;
-	height: auto;
-	left:45%;
-	top:80px;
-	background: #FFF;
+    position:absolute center;
+    width: 400px;
+    height: auto;
+    left:45%;
+    top:80px;
+    background: #FFF;
 }
 
 #modal_trigger {margin:100px auto; width:100px; display:block;}
@@ -189,19 +190,19 @@ ul, ol{list-style:none;}
 /* Tutorial CSS */
 /* Form Validation */
 .styled span.error {
-font: bold 11px Arial, sans-serif;
-color:#fff;
-text-shadow: 1px 1px 1px #000;
-display: none; 
-background: url(../../img/arrow_error.png) no-repeat 0 center; 
-height: 25px;
-padding: 7px 15px 10px 20px; 
-line-height: 1em; 
-position: absolute; 
-top: 3px; 
-right: 0; 
-border-right: 1px solid #6c0202;
+    font: bold 11px Arial, sans-serif;
+    color:#fff;
+    text-shadow: 1px 1px 1px #000;
+    display: none; 
+    background: url(../../img/arrow_error.png) no-repeat 0 center; 
+    height: 25px;
+    padding: 7px 15px 10px 20px; 
+    line-height: 1em; 
+    position: absolute; 
+    top: 3px; 
+    right: 0; 
+    border-right: 1px solid #6c0202;
 }
 .styled fieldset li.error input.text-input {
-background-position: 0 -64px;
+    background-position: 0 -64px;
 }

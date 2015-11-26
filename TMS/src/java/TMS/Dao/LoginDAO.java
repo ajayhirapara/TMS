@@ -15,5 +15,5 @@ public interface LoginDAO {
     public boolean Insert(Login l1 );
     public boolean Update(Login l1);
     public boolean Delete(Login l1);
-    public boolean Authentication(Login l1);
+    public Login Authentication(Login l1);
  }

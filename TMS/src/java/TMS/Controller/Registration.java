@@ -11,7 +11,7 @@ import TMS.Bean.Student;
 import TMS.Dao.MentorDao;
 import TMS.Dao.ProfessorDao;
 import TMS.Dao.StudentDao;
-import TMS.DaoImplementation.ObjectFactrory;
+import TMS.DaoImplementation.ObjectFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -19,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -45,6 +46,7 @@ public class Registration extends HttpServlet {
         String gender=request.getParameter("gender");
         String type=request.getParameter("type");
         String contact=request.getParameter("contact");
+        HttpSession session=request.getSession();
         if(type.equals("student")){
             int id=Integer.parseInt(getServletConfig().getInitParameter("studentId"));
             Student s=new Student();
@@ -57,9 +59,10 @@ public class Registration extends HttpServlet {
             s.setReg_Date( new java.sql.Date(new  java.util.Date().getTime()));
             s.setLast_Edit_Date(new java.sql.Date(new  java.util.Date().getTime()));
             s.setPhoto_Id("");
-            StudentDao stDAO=(StudentDao)ObjectFactrory.getInstance(constrants.studentDaoImpl);
+            StudentDao stDAO=(StudentDao)ObjectFactory.getInstance(constrants.studentDaoImpl);
             if(stDAO.Insert(s)){
-              out.println("registration sucess check your emaail account.. ");
+                session.setAttribute("RegistrationMessage", "Registration successfully done. check your email account for Activation.");
+                response.sendRedirect("login.jsp");     
             }
         }else if(type.equals("professor")){
             int id=Integer.parseInt(getServletConfig().getInitParameter("professorId"));
@@ -73,11 +76,11 @@ public class Registration extends HttpServlet {
             pro.setLast_Edit_Date(new java.sql.Date(new  java.util.Date().getTime()));
             pro.setStatus(false);
             pro.setPhoto_Id("");
-            ProfessorDao professorDao=(ProfessorDao) ObjectFactrory.getInstance(constrants.professorDaoImpl);
+            ProfessorDao professorDao=(ProfessorDao) ObjectFactory.getInstance(constrants.professorDaoImpl);
             professorDao.Insert(pro);
             if(professorDao.Insert(pro)){
-              out.println("registration sucess check your emaail account.. ");  
-            }
+                session.setAttribute("RegistrationMessage", "Registration successfully done. check your email account for Activation.");
+                response.sendRedirect("login.jsp"); }
         }else if(type.equals("mentor")){
             int id=Integer.parseInt(getServletConfig().getInitParameter("mentorId"));
             Mentor men=new Mentor();
@@ -90,9 +93,10 @@ public class Registration extends HttpServlet {
             men.setStatus(false);
             men.setContact_No(Long.parseLong(contact));
             men.setPhoto_Id("");
-            MentorDao mentorDao=(MentorDao) ObjectFactrory.getInstance(constrants.mentorDaoImpl);
+            MentorDao mentorDao=(MentorDao) ObjectFactory.getInstance(constrants.mentorDaoImpl);
             if(mentorDao.Insert(men)){
-                out.println("registration sucess check your emaail account.. ");
+                session.setAttribute("RegistrationMessage", "Registration successfully done. check your email account for Activation.");
+                response.sendRedirect("login.jsp");
             }
         }
     }

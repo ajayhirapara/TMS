@@ -15,5 +15,6 @@ public interface ProfessorDao {
     public boolean Insert(Professor p1 );
     public boolean Update(Professor p1);
     public boolean Delete(Professor p1);
-    
+    public Professor findByEmailId(String emailId);
+
 }

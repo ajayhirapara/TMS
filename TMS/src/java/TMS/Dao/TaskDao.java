@@ -5,6 +5,7 @@
  */
 package TMS.Dao;
 import TMS.Bean.Task;
+import TMS.Bean.Task_Allocated_To;
 import java.util.ArrayList;
 /**
  *
@@ -14,9 +15,10 @@ public interface TaskDao {
     public boolean insert(Task task);
     public boolean Update(Task task);
     public boolean Delete(Task task);
-    public ArrayList<Task> ListOfFinishTaskForStudent(String studentId,String team_Id,String CoursesId);
-    public ArrayList<Task> ListOfFinishTaskToCoursesAssiendByProfessor(String professor_Id,String CoursesId);
-    public ArrayList<Task> ListOfWorkingTaskForStudent(String studentId,String team_Id,String CoursesId);
-    public ArrayList<Task> ListOfWorkingTaskToCoursesAssiendByProfessor(String professor_Id,String CoursesId);
+    public ArrayList<Task_Allocated_To> Task_Allocated_Tos(String task_Id);
+    public ArrayList<Task> ListOfFinishTaskForStudent(String studentId,String team_Id,String coff_Id);
+    public ArrayList<Task> ListOfFinishTaskToCoursesAssiendByProfessor(String professor_Id,String coff_Id);
+    public ArrayList<Task> ListOfWorkingTaskForStudent(String studentId,String team_Id,String coff_Id);
+    public ArrayList<Task> ListOfWorkingTaskToCoursesAssiendByProfessor(String professor_Id,String coff_Id);
     
 }

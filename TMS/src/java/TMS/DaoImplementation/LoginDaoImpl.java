@@ -66,7 +66,7 @@ public class LoginDaoImpl implements TMS.Dao.LoginDAO {
 
     @Override
     public boolean Delete(Login l1) {
-        String qry="DELETE FROM `login` WHERE `email_id`=?";
+        String qry = "DELETE FROM `login` WHERE `email_id`=?";
         PreparedStatement ps;
         try {
             ps = con.prepareStatement(qry);
@@ -79,26 +79,28 @@ public class LoginDaoImpl implements TMS.Dao.LoginDAO {
     }
 
     @Override
-    public boolean Authentication(Login l1) {
-       String qry="SELECT * \n" +
-"FROM  `login` \n" +
-"WHERE  `email_id` =  ?\n" +
-"AND  `password` =?\n" +
-"AND  `status` =1";
-       PreparedStatement ps;
+    public Login Authentication(Login l1) {
+        String qry = "SELECT `email_id`, `password`, `type`, `status` FROM `login` WHERE `email_id`=?";
+        PreparedStatement ps;
+        Login login=null;
         try {
             ps = con.prepareStatement(qry);
             ps.setString(1, l1.getEmail_Id());
-            ps.setString(2, l1.getPassword());
-            ResultSet rs=ps.executeQuery();
-            if(rs.next()){
-                return true;
+            //ps.setString(2, l1.getPassword());
+            ResultSet resultSet = ps.executeQuery();
+            if (resultSet.next()) {
+                login=new  Login();
+                login.setEmail_Id(resultSet.getString(1));
+                login.setPassword(resultSet.getString(2));
+                login.setType(resultSet.getInt(3));
+                login.setStatus(resultSet.getBoolean(4));
+                return login;
             }
-            
-       } catch (SQLException ex) {
+
+        } catch (SQLException ex) {
             Logger.getLogger(LoginDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-       }
-        return false;
+        }
+        return login;
     }
     private static Connection con;
 }

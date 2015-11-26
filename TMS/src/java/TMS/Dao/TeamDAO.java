@@ -15,7 +15,7 @@ public interface TeamDAO {
     public boolean Insert(Team team);
     public boolean Update(Team team);
     public boolean Delete(Team team);
-    public Team ListOfTeamWiseStudent(String student_Id,String CoursesId);
+    public ArrayList<Team> ListOfTeamWiseStudent(String student_Id);
     public ArrayList<Team> ListOfTeamOfCourseWiseProfessor(String professor_Id,String Courses_Id);
-    
+    public Team ListOfTeamWiseStudent(String student_Id,String coffId);
 }

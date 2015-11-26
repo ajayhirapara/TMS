@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+     <listener>
+      <listener-class>TMS.Controller.MyServletContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>Authenticator</servlet-name>
+        <servlet-class>TMS.Controller.Authenticator</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CoursesDetailSet</servlet-name>
+        <servlet-class>TMS.Controller.CoursesDetailSet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCourses</servlet-name>
+        <servlet-class>TMS.Controller.AddCourses</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>tester</servlet-name>
+        <servlet-class>TMS.Controller.tester</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentTeamAllDetail</servlet-name>
+        <servlet-class>TMS.Controller.StudentTeamAllDetail</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Authenticator</servlet-name>
+        <url-pattern>/Authenticator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CoursesDetailSet</servlet-name>
+        <url-pattern>/CoursesDetailSet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCourses</servlet-name>
+        <url-pattern>/Professor/AddCourses</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>tester</servlet-name>
+        <url-pattern>/tester</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentTeamAllDetail</servlet-name>
+        <url-pattern>/StudentTeamAllDetail</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

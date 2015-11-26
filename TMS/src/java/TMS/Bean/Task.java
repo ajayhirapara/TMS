@@ -108,6 +108,14 @@ public class Task {
     public void setTask_Allocated_Tos(ArrayList<Task_Allocated_To> task_Allocated_Tos) {
         this.task_Allocated_Tos = task_Allocated_Tos;
     }
+    
+    public String getCoff_Id() {
+        return coff_Id;
+    }
+
+    public void setCoff_Id(String coff_Id) {
+        this.coff_Id = coff_Id;
+    }
     private String task_Id ;
     private String subject;
     private Date deadline_Date;
@@ -119,5 +127,6 @@ public class Task {
     private String assigned_category;
     private String venue ;
     private int progress ;
+    private String coff_Id;
     private ArrayList<Task_Allocated_To> task_Allocated_Tos;
 }

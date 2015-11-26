@@ -29,14 +29,23 @@ public class MOM {
         this.summary = summary;
     }
 
-    public Date getAuthor_Id() {
+    public String getAuthor_Id() {
         return author_Id;
     }
 
-    public void setAuthor_Id(Date author_Id) {
+    public void setAuthor_Id(String author_Id) {
         this.author_Id = author_Id;
+    }
+    
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
  private String meeting_Id;
  private String summary;
- private Date  author_Id;
+ private String  author_Id;
+ private Date date;
 }

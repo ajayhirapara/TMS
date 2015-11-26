@@ -76,6 +76,15 @@ public class Task_Allocated_To {
     public void setEvaluation_Date(Date evaluation_Date) {
         this.evaluation_Date = evaluation_Date;
     }
+
+    public String getStudent_Name() {
+        return student_Name;
+    }
+
+    public void setStudent_Name(String student_Name) {
+        this.student_Name = student_Name;
+    }
+    private String student_Name;
     private String student_Id; 
     private int  performer_Type;
     private Date submission_Date;

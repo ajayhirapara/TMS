@@ -22,9 +22,9 @@ public class MentorDaoImpl implements TMS.Dao.MentorDao{
        try {
              con=DbConnecter.getInstance().getConnection();
          } catch (ClassNotFoundException ex) {
-             Logger.getLogger(CoursesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(MentorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
          } catch (SQLException ex) {
-             Logger.getLogger(CoursesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(MentorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
          }
     }
     

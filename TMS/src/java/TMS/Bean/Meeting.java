@@ -53,9 +53,17 @@ public class Meeting {
         this.mom = mom;
     }
    
+    public String getTeam_id() {
+        return team_id;
+    }
+
+    public void setTeam_id(String team_id) {
+        this.team_id = team_id;
+    }
     private String meeting_Id;
     private String venue;
     private String agenda;
     private Date date;
+    private String team_id;
     private MOM mom;
 }

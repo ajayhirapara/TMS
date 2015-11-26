@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TMS.DaoImplementation;
 
 import TMS.Bean.Professor;
+import TMS.Controller.PropertiesCache;
 import TMS.DatabaseController.DbConnecter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,7 +34,7 @@ public class ProfessorDaoImpl implements TMS.Dao.ProfessorDao {
         try {
             ps = con.prepareStatement(qry);
 
-            ps.setString(1, p1.getProf_Id());
+            ps.setString(1, PropertiesCache.getProfessorId());
             ps.setString(2, p1.getProf_Name());
             ps.setLong(3, p1.getContact_No());
             ps.setString(4, p1.getEmail_Id());
@@ -97,4 +94,32 @@ public class ProfessorDaoImpl implements TMS.Dao.ProfessorDao {
         return false;
     }
     private static Connection con;
+
+    @Override
+    public Professor findByEmailId(String emailId) {
+        String qry = "SELECT `prof_id`, `prof_name`, `contact_no`, `email_id`, `gender`, `reg_date`, "
+                + "`last_edit_date`, `status`, `photo_id` FROM `professor` WHERE `email_id`=?";
+        Professor professor = null;
+
+        try {
+            professor = new Professor();
+            PreparedStatement preparedStatement = con.prepareStatement(qry);
+            preparedStatement.setString(1, emailId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                professor.setProf_Id(resultSet.getString(1));
+                professor.setProf_Name(resultSet.getString(2));
+                professor.setContact_No(resultSet.getLong(3));
+                professor.setEmail_Id(resultSet.getString(4));
+                professor.setGender(resultSet.getString(5));
+                professor.setReg_Date(resultSet.getDate(6));
+                professor.setLast_Edit_Date(resultSet.getDate(7));
+                professor.setStatus(resultSet.getBoolean(8));
+                professor.setPhoto_Id(resultSet.getString(9));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return professor;
+    }
 }

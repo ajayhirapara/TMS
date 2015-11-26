@@ -17,8 +17,11 @@ public interface CoursesDao {
     public boolean Update(Courses co);
     public boolean Delete(Courses co);
     
-    public ArrayList<Courses> ActiveCourses();
-    public ArrayList<Courses> FinishCourses();
-    public ArrayList<Courses> ListOfProfesserWiseCourses(String pro_Id);
+    public ArrayList<Courses> ActiveCourses(String professor_Id);
+    public ArrayList<Courses> FinishCourses(String professor_Id);
+    public ArrayList<Courses> ActiveCoursesStudentWise(String StudentId);
+    public ArrayList<Courses> FinishCoursesStudentWise(String StudentId);
+   public  Courses GetDetailsCourses(String co_Id);
+// public ArrayList<Courses> ListOfProfesserWiseCourses(String pro_Id);
     
 }

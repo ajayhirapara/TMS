@@ -6,6 +6,7 @@
 package TMS.Dao;
 
 import TMS.Bean.Student;
+import TMS.Bean.Enroll;
 
 /**
  *
@@ -16,5 +17,6 @@ public interface StudentDao {
     public boolean Insert(Student s1 );
     public boolean Update(Student s1);
     public boolean Delete(Student s1);
-    
+    public boolean EnrollCourses(Enroll enroll);
+    public Student FinndByEmailId(String EmailId);
 }
