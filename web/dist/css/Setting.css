@@ -1,0 +1,21 @@
+.btn-toggle{margin-top: 0%;margin-left: 22%;}
+.h8{padding: 3%;}
+.styled span.error {
+    font: bold 11px Arial, sans-serif;
+    color:#fff;
+    text-shadow: 1px 1px 1px #000;
+    display: none; 
+    background: url(../../img/arroe-rotate.png) no-repeat 0 center; 
+    height: 25px;
+    padding: 7px 17px 21px 11px; 
+    line-height: 1em; 
+    position: absolute; 
+    top: 3px; 
+    right: 0; 
+    border-right: 1px solid #6c0202;
+}
+.styled fieldset li.error input.text-input {
+    background-position: 0 -64px;
+}
+.btn_hide{padding:10px 20px; background: #F4F4F2; text-align: center; text-decoration: black;}
+.btn_hide:hover { fit-position: center; display:block; padding:10px 20px; text-align: center; text-decoration: none; background: #0080FF}
